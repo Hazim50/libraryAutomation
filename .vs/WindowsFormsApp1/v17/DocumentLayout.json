@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\hazim\\source\\repos\\windowsformsapp1\\windowsformsapp1\\add book page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\add book page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\hazim\\source\\repos\\windowsformsapp1\\windowsformsapp1\\listbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\listbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\windowsformsapp1\\main page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\main page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\hazim\\source\\repos\\windowsformsapp1\\windowsformsapp1\\add book page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\add book page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\hazim\\source\\repos\\windowsformsapp1\\windowsformsapp1\\add member page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\add member page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\windowsformsapp1\\main page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\main page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\hazim\\source\\repos\\windowsformsapp1\\windowsformsapp1\\add member page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\add member page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\hazim\\source\\repos\\windowsformsapp1\\windowsformsapp1\\list member page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\list member page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\hazim\\source\\repos\\windowsformsapp1\\windowsformsapp1\\list member page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\list member page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\hazim\\source\\repos\\windowsformsapp1\\windowsformsapp1\\listbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\listbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\hazim\\source\\repos\\windowsformsapp1\\windowsformsapp1\\delete book page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B12D962-9777-4DC5-9667-DA428A85DB28}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\delete book page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,56 +38,81 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Add Member Page.cs",
-              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Add Member Page.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Add Member Page.cs",
-              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Add Member Page.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\Add Member Page.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAqwDQAAAAMAAAA",
+              "DocumentIndex": 3,
+              "Title": "List Member Page.cs",
+              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\List Member Page.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\List Member Page.cs",
+              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\List Member Page.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\List Member Page.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAowCgAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T18:31:33.054Z",
+              "WhenOpened": "2024-05-25T19:34:32.956Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Add Book Page.cs",
-              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Add Book Page.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Add Book Page.cs",
-              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Add Book Page.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\Add Book Page.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAqwCUAAAAJAAAA",
+              "DocumentIndex": 6,
+              "Title": "Delete Book Page.cs",
+              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Delete Book Page.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Delete Book Page.cs",
+              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Delete Book Page.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\Delete Book Page.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T18:29:37.295Z",
+              "WhenOpened": "2024-05-25T19:33:26.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "List Member Page.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\List Member Page.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\List Member Page.cs",
+              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\List Member Page.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp1\\List Member Page.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T19:32:52.197Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "listBook.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\listBook.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\listBook.cs",
+              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\listBook.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp1\\listBook.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T19:32:12.845Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "listBook.cs",
+              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\listBook.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\listBook.cs",
+              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\listBook.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\listBook.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAACcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T19:34:21.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Add Book Page.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Add Book Page.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Add Book Page.cs",
-              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Add Book Page.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp1\\Add Book Page.cs [Design]",
+              "Title": "Main Page.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main Page.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Main Page.cs",
+              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main Page.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp1\\Main Page.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T18:24:08.243Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Add Member Page.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Add Member Page.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Add Member Page.cs",
-              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Add Member Page.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp1\\Add Member Page.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T18:24:26.41Z",
+              "WhenOpened": "2024-05-24T22:50:48.782Z",
               "EditorCaption": " [Design]"
             },
             {
@@ -94,22 +123,10 @@
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Main Page.cs",
               "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main Page.cs",
               "RelativeToolTip": "WindowsFormsApp1\\Main Page.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAjwDIAAAAoAAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAIAwwDcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-25T10:42:55.763Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Main Page.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main Page.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Main Page.cs",
-              "ToolTip": "C:\\Users\\Hazim\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Main Page.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp1\\Main Page.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T22:50:48.782Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

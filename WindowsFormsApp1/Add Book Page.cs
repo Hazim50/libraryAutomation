@@ -50,16 +50,43 @@ namespace WindowsFormsApp1
 
             try
             {
-                String query = "insert into Books (author,book_name,page_count,shelf_no,book_count) values (@author,@book_name,@page_count,@shelf_no,@book_count)";
-                SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.AddWithValue("@author", textBox_author.Text);
-                command.Parameters.AddWithValue("@book_name", textBox_name.Text);
-                command.Parameters.AddWithValue("@page_count", textBox_pageCount.Text);
-                command.Parameters.AddWithValue("@shelf_no", textBox_shelfNo.Text);
-                command.Parameters.AddWithValue("@book_count", textBox_bookCount.Text);
+                String checkQuery = "SELECT COUNT(*) FROM Books WHERE author = @author AND book_name = @book_name";
+                SqlCommand checkCommand = new SqlCommand(checkQuery, conn);
+                checkCommand.Parameters.AddWithValue("@author", textBox_author.Text);
+                checkCommand.Parameters.AddWithValue("@book_name", textBox_name.Text);
 
-                command.ExecuteNonQuery();
-                MessageBox.Show("Kitap Ekleme İşlemi Başarılı.");
+                int count = (int)checkCommand.ExecuteScalar();
+
+                if (textBox_bookCount.Text != null)
+                {
+                    if (count > 0)
+                    {
+                        String updateQuery = "UPDATE Books SET book_count = book_count + @book_count WHERE author = @author AND book_name = @book_name";
+                        SqlCommand updateCommand = new SqlCommand(updateQuery, conn);
+                        updateCommand.Parameters.AddWithValue("@book_count", int.Parse(textBox_bookCount.Text));
+                        updateCommand.Parameters.AddWithValue("@author", textBox_author.Text);
+                        updateCommand.Parameters.AddWithValue("@book_name", textBox_name.Text);
+
+                        updateCommand.ExecuteNonQuery();
+                        MessageBox.Show("Kitap sayısı güncellendi.");
+                    }
+                    else
+                    {
+                        String query = "INSERT INTO Books (author, book_name, page_count, shelf_no, book_count) VALUES (@author, @book_name, @page_count, @shelf_no, @book_count)";
+                        SqlCommand command = new SqlCommand(query, conn);
+                        command.Parameters.AddWithValue("@author", textBox_author.Text);
+                        command.Parameters.AddWithValue("@book_name", textBox_name.Text);
+                        command.Parameters.AddWithValue("@page_count", textBox_pageCount.Text);
+                        command.Parameters.AddWithValue("@shelf_no", textBox_shelfNo.Text);
+                        command.Parameters.AddWithValue("@book_count", int.Parse(textBox_bookCount.Text));
+
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Kitap Ekleme İşlemi Başarılı.");
+                    }
+                }
+                else MessageBox.Show("Kitap Sayısı Boş Olamaz!");
+
+                
             }
             catch (Exception ex)
             {

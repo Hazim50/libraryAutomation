@@ -59,5 +59,17 @@ namespace WindowsFormsApp1
             addBook addBookForm = new addBook(connection);
             addBookForm.ShowDialog();
         }
+
+        private void b_list_book_Click(object sender, EventArgs e)
+        {
+            listBook listBookForm = new listBook(connection);
+            listBookForm.ShowDialog();
+        }
+
+        private void b_delete_book_Click(object sender, EventArgs e)
+        {
+            deleteBook delBookForm = new deleteBook(connection);
+            delBookForm.ShowDialog();
+        }
     }
 }

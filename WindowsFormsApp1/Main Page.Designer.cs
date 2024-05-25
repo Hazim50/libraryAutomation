@@ -153,6 +153,7 @@
             this.b_list_book.TabIndex = 2;
             this.b_list_book.Text = "Kitap Listele";
             this.b_list_book.UseVisualStyleBackColor = false;
+            this.b_list_book.Click += new System.EventHandler(this.b_list_book_Click);
             // 
             // b_delete_book
             // 
@@ -165,6 +166,7 @@
             this.b_delete_book.TabIndex = 1;
             this.b_delete_book.Text = "Kitap Sil";
             this.b_delete_book.UseVisualStyleBackColor = false;
+            this.b_delete_book.Click += new System.EventHandler(this.b_delete_book_Click);
             // 
             // b_add_book
             // 

@@ -52,11 +52,23 @@
     <Compile Include="Add Book Page.Designer.cs">
       <DependentUpon>Add Book Page.cs</DependentUpon>
     </Compile>
+    <Compile Include="Delete Book Page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete Book Page.Designer.cs">
+      <DependentUpon>Delete Book Page.cs</DependentUpon>
+    </Compile>
     <Compile Include="Delete Member Page.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Delete Member Page.Designer.cs">
       <DependentUpon>Delete Member Page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listBook.Designer.cs">
+      <DependentUpon>listBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Main Page.cs">
       <SubType>Form</SubType>
@@ -86,8 +98,14 @@
     <EmbeddedResource Include="Add Book Page.resx">
       <DependentUpon>Add Book Page.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Delete Book Page.resx">
+      <DependentUpon>Delete Book Page.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delete Member Page.resx">
       <DependentUpon>Delete Member Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listBook.resx">
+      <DependentUpon>listBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main Page.resx">
       <DependentUpon>Main Page.cs</DependentUpon>
