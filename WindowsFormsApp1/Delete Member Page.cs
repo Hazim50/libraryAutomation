@@ -54,59 +54,23 @@ namespace WindowsFormsApp1
                 if (conn.State == ConnectionState.Closed)
                 {
                     conn.Open();
-                    getMembers();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            getMembers();
         }
-
         private void b_delete_member_Click(object sender, EventArgs e)
         {
-            string columnName;
-            string text;
-            if (radioButton_Id.Checked)
-            {
-                columnName = "member_id";
-                text=textBox_ID.Text;
-            }
-            else if (radioButton_name.Checked)
-            {
-                columnName= "name";
-                text=textBox_name.Text;
-            }
-            else if (radioButton_surname.Checked)
-            {
-                columnName = "surname";
-                text=textBox_surname.Text;
-            }
-            else if (radioButton_tel.Checked)
-            {
-                columnName = "tel";
-                text=textBox_tel.Text;
-            }
-            else
-            {
-                columnName = "email";
-                text = textBox_mail.Text;
-            }
-
             try
             {
-                string delQuery = "delete from Members where " + columnName + " = " + "'" + text + "'";
-                SqlCommand command = new SqlCommand(delQuery, conn);
-                int numberRowAffected = command.ExecuteNonQuery();
-                if (numberRowAffected > 0) MessageBox.Show("Üye Silme İşlemi Başarılı. " + numberRowAffected + " adet kullanici silindi!");
-                else MessageBox.Show("Silinecek Üye Bulunamadı!");
+                string deleteQuery = "DELETE FROM Members WHERE member_id = @member_id";
+                SqlCommand deleteCommand = new SqlCommand(deleteQuery, conn);
+                deleteCommand.Parameters.AddWithValue("@member_id", dataGridView1.CurrentRow.Cells["member_id"].Value);
+                deleteCommand.ExecuteNonQuery();
                 getMembers();
-
-                textBox_ID.Text = "";
-                textBox_name.Text = "";
-                textBox_surname.Text = "";
-                textBox_mail.Text = "";
-                textBox_tel.Text = "";
             }
             catch (Exception ex)
             {

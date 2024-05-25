@@ -203,6 +203,7 @@
             this.b_list_delivery.TabIndex = 2;
             this.b_list_delivery.Text = "Teslim Listele";
             this.b_list_delivery.UseVisualStyleBackColor = false;
+            this.b_list_delivery.Click += new System.EventHandler(this.b_list_delivery_Click);
             // 
             // b_receive
             // 
@@ -215,6 +216,7 @@
             this.b_receive.TabIndex = 1;
             this.b_receive.Text = "Teslim Al";
             this.b_receive.UseVisualStyleBackColor = false;
+            this.b_receive.Click += new System.EventHandler(this.b_receive_Click);
             // 
             // b_deliver
             // 
@@ -227,6 +229,7 @@
             this.b_deliver.TabIndex = 0;
             this.b_deliver.Text = "Teslim Et";
             this.b_deliver.UseVisualStyleBackColor = false;
+            this.b_deliver.Click += new System.EventHandler(this.b_deliver_Click);
             // 
             // Main
             // 

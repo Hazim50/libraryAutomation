@@ -52,53 +52,29 @@ namespace WindowsFormsApp1
                 if (conn.State == ConnectionState.Closed)
                 {
                     conn.Open();
-                    getBooks();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            getBooks();
         }
 
         private void b_delete_book_Click(object sender, EventArgs e)
         {
-            string columnName;
-            string text;
-            if (radioButton_Id.Checked)
-            {
-                columnName = "barcode_id";
-                text=textBox_ID.Text;
-            }
-            else if (radioButton_author.Checked)
-            {
-                columnName= "author";
-                text=textBox_author.Text;
-            }
-            else
-            {
-                columnName = "book_name";
-                text=textBox_name.Text;
-            }
-
             try
             {
-                string delQuery = "delete from Books where " + columnName + " = " + "'" + text + "'";
-                SqlCommand command = new SqlCommand(delQuery, conn);
-                int numberRowAffected = command.ExecuteNonQuery();
-                if (numberRowAffected > 0) MessageBox.Show("Üye Silme İşlemi Başarılı. " + numberRowAffected + " adet kullanici silindi!");
-                else MessageBox.Show("Silinecek Üye Bulunamadı!");
+                string deleteQuery = "DELETE FROM Books WHERE barcode_id = @barcode_id";
+                SqlCommand deleteCommand = new SqlCommand(deleteQuery, conn);
+                deleteCommand.Parameters.AddWithValue("@barcode_id", dataGridView1.CurrentRow.Cells["barcode_id"].Value);
+                deleteCommand.ExecuteNonQuery();
                 getBooks();
-
-                textBox_ID.Text = "";
-                textBox_author.Text = "";
-                textBox_name.Text = "";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
     }
 }

@@ -64,11 +64,23 @@
     <Compile Include="Delete Member Page.Designer.cs">
       <DependentUpon>Delete Member Page.cs</DependentUpon>
     </Compile>
+    <Compile Include="deliverBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="deliverBook.Designer.cs">
+      <DependentUpon>deliverBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="listBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="listBook.Designer.cs">
       <DependentUpon>listBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listDeliveredBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listDeliveredBooks.Designer.cs">
+      <DependentUpon>listDeliveredBooks.cs</DependentUpon>
     </Compile>
     <Compile Include="Main Page.cs">
       <SubType>Form</SubType>
@@ -95,6 +107,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="receiveBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="receiveBook.Designer.cs">
+      <DependentUpon>receiveBook.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add Book Page.resx">
       <DependentUpon>Add Book Page.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,8 +122,14 @@
     <EmbeddedResource Include="Delete Member Page.resx">
       <DependentUpon>Delete Member Page.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="deliverBook.resx">
+      <DependentUpon>deliverBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="listBook.resx">
       <DependentUpon>listBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listDeliveredBooks.resx">
+      <DependentUpon>listDeliveredBooks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main Page.resx">
       <DependentUpon>Main Page.cs</DependentUpon>
@@ -125,6 +149,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="receiveBook.resx">
+      <DependentUpon>receiveBook.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="KutuphaneDataSet.xsc">
       <DependentUpon>KutuphaneDataSet.xsd</DependentUpon>
     </None>

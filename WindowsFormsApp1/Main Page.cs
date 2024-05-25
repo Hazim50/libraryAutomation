@@ -71,5 +71,23 @@ namespace WindowsFormsApp1
             deleteBook delBookForm = new deleteBook(connection);
             delBookForm.ShowDialog();
         }
+
+        private void b_deliver_Click(object sender, EventArgs e)
+        {
+            deliverBook deliverBookForm = new deliverBook(connection);
+            deliverBookForm.ShowDialog();
+        }
+
+        private void b_list_delivery_Click(object sender, EventArgs e)
+        {
+            listDeliveredBooks listDeliveredBooks = new listDeliveredBooks(connection);
+            listDeliveredBooks.ShowDialog();
+        }
+
+        private void b_receive_Click(object sender, EventArgs e)
+        {
+            receiveBook receiveBookForm = new receiveBook(connection);
+            receiveBookForm.ShowDialog();
+        }
     }
 }

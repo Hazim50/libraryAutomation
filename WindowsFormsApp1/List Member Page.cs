@@ -56,7 +56,6 @@ namespace WindowsFormsApp1
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
-                conn.Close();
             }
             catch (Exception ex)
             {

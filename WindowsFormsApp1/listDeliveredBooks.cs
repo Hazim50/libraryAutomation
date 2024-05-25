@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class listBook : Form
+    public partial class listDeliveredBooks : Form
     {
         SqlConnection conn;
-        public listBook(SqlConnection connection)
+        public listDeliveredBooks(SqlConnection connection)
         {
             InitializeComponent();
             this.conn = connection;
@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void listBook_Load(object sender, EventArgs e)
+        private void listDeliveredBooks_Load(object sender, EventArgs e)
         {
             try
             {
@@ -50,17 +50,25 @@ namespace WindowsFormsApp1
 
             try
             {
-                string query = "Select * from Books";
-                SqlCommand command = new SqlCommand(query, conn);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView1.DataSource = dt;
+                string queryFalse = "SELECT * FROM Deliveries WHERE is_returned = 0";
+                SqlCommand commandFalse = new SqlCommand(queryFalse, conn);
+                SqlDataAdapter adapterFalse = new SqlDataAdapter(commandFalse);
+                DataTable dtFalse = new DataTable();
+                adapterFalse.Fill(dtFalse);
+                dgw_False.DataSource = dtFalse;
+
+                string queryTrue = "SELECT * FROM Deliveries WHERE is_returned = 1";
+                SqlCommand commandTrue = new SqlCommand(queryTrue, conn);
+                SqlDataAdapter adapterTrue = new SqlDataAdapter(commandTrue);
+                DataTable dtTrue = new DataTable();
+                adapterTrue.Fill(dtTrue);
+                dgw_True.DataSource = dtTrue;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
     }
 }
