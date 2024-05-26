@@ -30,7 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dgw_False = new System.Windows.Forms.DataGridView();
-            this.b_deliver = new System.Windows.Forms.Button();
+            this.b_receive = new System.Windows.Forms.Button();
+            this.dtp_return = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_False)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,18 +57,25 @@
             this.dgw_False.Size = new System.Drawing.Size(1043, 250);
             this.dgw_False.TabIndex = 30;
             // 
-            // b_deliver
+            // b_receive
             // 
-            this.b_deliver.BackColor = System.Drawing.Color.LimeGreen;
-            this.b_deliver.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.b_deliver.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.b_deliver.Location = new System.Drawing.Point(462, 299);
-            this.b_deliver.Name = "b_deliver";
-            this.b_deliver.Size = new System.Drawing.Size(212, 57);
-            this.b_deliver.TabIndex = 32;
-            this.b_deliver.Text = "Teslim Al";
-            this.b_deliver.UseVisualStyleBackColor = false;
-            this.b_deliver.Click += new System.EventHandler(this.b_deliver_Click);
+            this.b_receive.BackColor = System.Drawing.Color.LimeGreen;
+            this.b_receive.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.b_receive.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.b_receive.Location = new System.Drawing.Point(462, 299);
+            this.b_receive.Name = "b_receive";
+            this.b_receive.Size = new System.Drawing.Size(212, 57);
+            this.b_receive.TabIndex = 32;
+            this.b_receive.Text = "Teslim Al";
+            this.b_receive.UseVisualStyleBackColor = false;
+            this.b_receive.Click += new System.EventHandler(this.b_receive_Click_1);
+            // 
+            // dtp_return
+            // 
+            this.dtp_return.Location = new System.Drawing.Point(799, 328);
+            this.dtp_return.Name = "dtp_return";
+            this.dtp_return.Size = new System.Drawing.Size(200, 20);
+            this.dtp_return.TabIndex = 33;
             // 
             // receiveBook
             // 
@@ -75,7 +83,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(1112, 409);
-            this.Controls.Add(this.b_deliver);
+            this.Controls.Add(this.dtp_return);
+            this.Controls.Add(this.b_receive);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgw_False);
             this.Name = "receiveBook";
@@ -91,6 +100,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgw_False;
-        private System.Windows.Forms.Button b_deliver;
+        private System.Windows.Forms.Button b_receive;
+        private System.Windows.Forms.DateTimePicker dtp_return;
     }
 }

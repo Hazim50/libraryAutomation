@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,8 +13,8 @@ namespace WindowsFormsApp1
 {
     public partial class listDeliveredBooks : Form
     {
-        SqlConnection conn;
-        public listDeliveredBooks(SqlConnection connection)
+        OleDbConnection conn;
+        public listDeliveredBooks(OleDbConnection connection)
         {
             InitializeComponent();
             this.conn = connection;
@@ -50,16 +50,16 @@ namespace WindowsFormsApp1
 
             try
             {
-                string queryFalse = "SELECT * FROM Deliveries WHERE is_returned = 0";
-                SqlCommand commandFalse = new SqlCommand(queryFalse, conn);
-                SqlDataAdapter adapterFalse = new SqlDataAdapter(commandFalse);
+                string queryFalse = "SELECT * FROM Deliveries WHERE is_returned = false"; //teslim edilmeyenleri üstteki tabloda göstermek için
+                OleDbCommand commandFalse = new OleDbCommand(queryFalse, conn);
+                OleDbDataAdapter adapterFalse = new OleDbDataAdapter(commandFalse);
                 DataTable dtFalse = new DataTable();
                 adapterFalse.Fill(dtFalse);
                 dgw_False.DataSource = dtFalse;
 
-                string queryTrue = "SELECT * FROM Deliveries WHERE is_returned = 1";
-                SqlCommand commandTrue = new SqlCommand(queryTrue, conn);
-                SqlDataAdapter adapterTrue = new SqlDataAdapter(commandTrue);
+                string queryTrue = "SELECT * FROM Deliveries WHERE is_returned = true"; // teslim edilenleri alttaki tabloda göstermek için
+                OleDbCommand commandTrue = new OleDbCommand(queryTrue, conn);
+                OleDbDataAdapter adapterTrue = new OleDbDataAdapter(commandTrue);
                 DataTable dtTrue = new DataTable();
                 adapterTrue.Fill(dtTrue);
                 dgw_True.DataSource = dtTrue;

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 
 namespace WindowsFormsApp1
 {
@@ -19,7 +19,9 @@ namespace WindowsFormsApp1
             this.Paint += new PaintEventHandler(this.Main_Paint); // Paint olayını ekliyoruz, çerçeveyi beyaz yapmak için
         }
 
-        private void Main_Paint(object sender, PaintEventArgs e)
+        OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=my_library.mdb"); // accdb ile baglanti kur
+        
+        private void Main_Paint(object sender, PaintEventArgs e) //çerçeveyi beyaz yapan kod
         {
             Color borderColor = Color.White;
             int borderWidth = 2;
@@ -32,11 +34,7 @@ namespace WindowsFormsApp1
                 e.Graphics.DrawRectangle(pen, 0, 0, width - 1, height - 1);
             }
         }
-
-        static string conn_string = "Data Source=DESKTOP-4V8VAGV\\HZM;Initial Catalog=Kutuphane;Integrated Security=True;";
-        SqlConnection connection = new SqlConnection(conn_string);
-
-        private void b_add_member_Click(object sender, EventArgs e)
+        private void b_add_member_Click(object sender, EventArgs e) //butona tıklayınca kendi penceresini açan kısımlar
         {
             addMember addMemberForm = new addMember(connection);
             addMemberForm.ShowDialog();

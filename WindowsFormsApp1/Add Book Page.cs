@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,8 +13,8 @@ namespace WindowsFormsApp1
 {
     public partial class addBook : Form
     {
-        SqlConnection conn;
-        public addBook(SqlConnection connection)
+        OleDbConnection conn; //bağlantıyı mainden alıyoruz
+        public addBook(OleDbConnection connection)
         {
             InitializeComponent();
             this.conn = connection;
@@ -34,11 +34,11 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void b_add_member_Click(object sender, EventArgs e)
+        private void b_add_member_Click(object sender, EventArgs e) //butona tıklayınca yapılacak olaylar
         {
             try
             {
-                if (conn.State == ConnectionState.Closed)
+                if (conn.State == ConnectionState.Closed) //bağlantı kapalıysa aç
                 {
                     conn.Open();
                 }
@@ -50,37 +50,37 @@ namespace WindowsFormsApp1
 
             try
             {
-                String checkQuery = "SELECT COUNT(*) FROM Books WHERE author = @author AND book_name = @book_name";
-                SqlCommand checkCommand = new SqlCommand(checkQuery, conn);
+                String checkQuery = "SELECT COUNT(*) FROM Books WHERE author = @author AND book_name = @book_name"; //eğer mevcutsa yeni kayıt yerine üzerine ekleme yapması için, author ve kitap adının aynı olması lazım
+                OleDbCommand checkCommand = new OleDbCommand(checkQuery, conn); //komut oluşturuyor
                 checkCommand.Parameters.AddWithValue("@author", textBox_author.Text);
                 checkCommand.Parameters.AddWithValue("@book_name", textBox_name.Text);
 
-                int count = (int)checkCommand.ExecuteScalar();
+                int count = (int)checkCommand.ExecuteScalar(); //toplam kaç tane satır var, (zaten ya 1'dir ya 0'dır çünkü biz öyle olacak şekilde ayarlıyoruz)
 
                 if (textBox_bookCount.Text != null)
                 {
-                    if (count > 0)
+                    if (count > 0) // book_count değişkeninin üzerine yeni eklenen kayıttaki book_count sayısı kadar ekle
                     {
                         String updateQuery = "UPDATE Books SET book_count = book_count + @book_count WHERE author = @author AND book_name = @book_name";
-                        SqlCommand updateCommand = new SqlCommand(updateQuery, conn);
+                        OleDbCommand updateCommand = new OleDbCommand(updateQuery, conn);
                         updateCommand.Parameters.AddWithValue("@book_count", int.Parse(textBox_bookCount.Text));
                         updateCommand.Parameters.AddWithValue("@author", textBox_author.Text);
                         updateCommand.Parameters.AddWithValue("@book_name", textBox_name.Text);
 
-                        updateCommand.ExecuteNonQuery();
-                        MessageBox.Show("Kitap sayısı güncellendi.");
+                        updateCommand.ExecuteNonQuery(); //komut çalıştır
+                        MessageBox.Show("Kitap sayısı güncellendi."); 
                     }
-                    else
+                    else //sıfırdan kayıt oluştur
                     {
                         String query = "INSERT INTO Books (author, book_name, page_count, shelf_no, book_count) VALUES (@author, @book_name, @page_count, @shelf_no, @book_count)";
-                        SqlCommand command = new SqlCommand(query, conn);
+                        OleDbCommand command = new OleDbCommand(query, conn);
                         command.Parameters.AddWithValue("@author", textBox_author.Text);
                         command.Parameters.AddWithValue("@book_name", textBox_name.Text);
                         command.Parameters.AddWithValue("@page_count", textBox_pageCount.Text);
                         command.Parameters.AddWithValue("@shelf_no", textBox_shelfNo.Text);
-                        command.Parameters.AddWithValue("@book_count", int.Parse(textBox_bookCount.Text));
+                        command.Parameters.AddWithValue("@book_count", int.Parse(textBox_bookCount.Text)); 
 
-                        command.ExecuteNonQuery();
+                        command.ExecuteNonQuery(); 
                         MessageBox.Show("Kitap Ekleme İşlemi Başarılı.");
                     }
                 }

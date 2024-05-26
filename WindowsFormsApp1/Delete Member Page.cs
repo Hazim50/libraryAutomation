@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,8 +14,8 @@ namespace WindowsFormsApp1
 {
     public partial class deleteMember : Form
     {
-        SqlConnection conn;
-        public deleteMember(SqlConnection connection)
+        OleDbConnection conn;
+        public deleteMember(OleDbConnection connection)
         {
             InitializeComponent();
             this.conn = connection;
@@ -39,8 +39,8 @@ namespace WindowsFormsApp1
         private DataGridView getMembers()
         {
             string query = "Select * from Members";
-            SqlCommand command = new SqlCommand(query, conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            OleDbCommand command = new OleDbCommand(query, conn);
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -67,7 +67,7 @@ namespace WindowsFormsApp1
             try
             {
                 string deleteQuery = "DELETE FROM Members WHERE member_id = @member_id";
-                SqlCommand deleteCommand = new SqlCommand(deleteQuery, conn);
+                OleDbCommand deleteCommand = new OleDbCommand(deleteQuery, conn);
                 deleteCommand.Parameters.AddWithValue("@member_id", dataGridView1.CurrentRow.Cells["member_id"].Value);
                 deleteCommand.ExecuteNonQuery();
                 getMembers();

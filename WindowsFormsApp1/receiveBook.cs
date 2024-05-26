@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,8 +13,8 @@ namespace WindowsFormsApp1
 {
     public partial class receiveBook : Form
     {
-        SqlConnection conn;
-        public receiveBook(SqlConnection connection)
+        OleDbConnection conn;
+        public receiveBook(OleDbConnection connection)
         {
             InitializeComponent();
             this.conn = connection;
@@ -39,14 +39,14 @@ namespace WindowsFormsApp1
         {
             try
             {
-                string queryFalse = "SELECT * FROM Deliveries WHERE is_returned = 0";
-                SqlCommand commandFalse = new SqlCommand(queryFalse, conn);
-                SqlDataAdapter adapterFalse = new SqlDataAdapter(commandFalse);
+                string queryFalse = "SELECT * FROM Deliveries WHERE is_returned = 0"; // ekranda sadece teslim edilmeyenleri göstermek için
+                OleDbCommand commandFalse = new OleDbCommand(queryFalse, conn);
+                OleDbDataAdapter adapterFalse = new OleDbDataAdapter(commandFalse);
                 DataTable dtFalse = new DataTable();
                 adapterFalse.Fill(dtFalse);
                 dgw_False.DataSource = dtFalse;
-
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -69,26 +69,22 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void b_deliver_Click(object sender, EventArgs e)
-        {
 
+        private void b_receive_Click_1(object sender, EventArgs e)
+        {
             try
             {
-                DateTime currentDate = DateTime.Now;
-
-                string updateQuery = "UPDATE Deliveries SET is_returned = 1, return_date = @return_date WHERE delivery_id = @delivery_id";
-                SqlCommand updateCommand = new SqlCommand(updateQuery, conn);
-
+                string updateQuery = "UPDATE Deliveries SET is_returned = true WHERE delivery_id = @delivery_id"; //teslim edilen kitabın is_returned değişkenini True yapmak için
+                OleDbCommand updateCommand = new OleDbCommand(updateQuery, conn);
                 updateCommand.Parameters.AddWithValue("@delivery_id", dgw_False.CurrentRow.Cells["delivery_id"].Value);
-                updateCommand.Parameters.AddWithValue("@return_date", currentDate); 
                 updateCommand.ExecuteNonQuery();
 
-                string queryToIncreaseBookCount = "UPDATE Books SET book_count = book_count + 1 WHERE barcode_id = @barcode_id";
-                SqlCommand commandToIncreaseBookCount = new SqlCommand(queryToIncreaseBookCount, conn);
+                string queryToIncreaseBookCount = "UPDATE Books SET book_count = book_count + 1 WHERE barcode_id = @barcode_id"; //teslim edilen kitabın book_count değişkenini 1 artırıyoruz
+                OleDbCommand commandToIncreaseBookCount = new OleDbCommand(queryToIncreaseBookCount, conn);
                 commandToIncreaseBookCount.Parameters.AddWithValue("@barcode_id", dgw_False.CurrentRow.Cells["barcode_id"].Value);
                 commandToIncreaseBookCount.ExecuteNonQuery();
 
-                fill_DGW(); 
+                fill_DGW();
 
                 MessageBox.Show("Kitap Başarıyla Teslim Alındı");
             }

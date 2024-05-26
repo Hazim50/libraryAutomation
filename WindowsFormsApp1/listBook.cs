@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,8 +13,8 @@ namespace WindowsFormsApp1
 {
     public partial class listBook : Form
     {
-        SqlConnection conn;
-        public listBook(SqlConnection connection)
+        OleDbConnection conn;
+        public listBook(OleDbConnection connection)
         {
             InitializeComponent();
             this.conn = connection;
@@ -51,8 +51,8 @@ namespace WindowsFormsApp1
             try
             {
                 string query = "Select * from Books";
-                SqlCommand command = new SqlCommand(query, conn);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                OleDbCommand command = new OleDbCommand(query, conn);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;

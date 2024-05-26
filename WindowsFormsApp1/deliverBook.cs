@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,8 +13,8 @@ namespace WindowsFormsApp1
 {
     public partial class deliverBook : Form
     {
-        SqlConnection conn;
-        public deliverBook(SqlConnection connection)
+        OleDbConnection conn;
+        public deliverBook(OleDbConnection connection)
         {
             InitializeComponent();
             this.conn = connection;
@@ -50,9 +50,9 @@ namespace WindowsFormsApp1
 
             try
             {
-                string query1 = "Select * from Books";
-                SqlCommand command = new SqlCommand(query1, conn);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                string query1 = "Select * from Books"; //kitaplar tablosunu doldurmak için
+                OleDbCommand command = new OleDbCommand(query1, conn);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dgw_Books.DataSource = dt;
@@ -64,9 +64,9 @@ namespace WindowsFormsApp1
 
             try
             {
-                string query2 = "Select * from Members";
-                SqlCommand command2 = new SqlCommand(query2, conn);
-                SqlDataAdapter adapter2 = new SqlDataAdapter(command2);
+                string query2 = "Select * from Members"; //üyeler tablosunu doldurmak için
+                OleDbCommand command2 = new OleDbCommand(query2, conn);
+                OleDbDataAdapter adapter2 = new OleDbDataAdapter(command2);
                 DataTable dt2 = new DataTable();
                 adapter2.Fill(dt2);
                 dgw_Members.DataSource = dt2;
@@ -86,33 +86,44 @@ namespace WindowsFormsApp1
         {
             try
             {
-                String query = "insert into Deliveries (member_id, member_name, member_tel, barcode_id, book_author, book_name, delivery_date, return_date, is_returned)" +
-                " values(@member_id, @member_name, @member_tel, @barcode_id, @book_author, @book_name, @delivery_date, @return_date, @is_returned)";
-                SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.AddWithValue("@member_id", dgw_Members.CurrentRow.Cells["member_id"].Value);
-                command.Parameters.AddWithValue("@member_name", dgw_Members.CurrentRow.Cells["name"].Value.ToString());
-                command.Parameters.AddWithValue("@member_tel", dgw_Members.CurrentRow.Cells["tel"].Value);
-                command.Parameters.AddWithValue("@barcode_id", dgw_Books.CurrentRow.Cells["barcode_id"].Value);
-                command.Parameters.AddWithValue("@book_author", dgw_Books.CurrentRow.Cells["author"].Value.ToString());
-                command.Parameters.AddWithValue("@book_name", dgw_Books.CurrentRow.Cells["book_name"].Value.ToString());
-                command.Parameters.AddWithValue("@delivery_date", dtp_Deliver.Value);
-                command.Parameters.AddWithValue("@return_date", dtp_Return.Value);
-                command.Parameters.AddWithValue("@is_returned", "0");
+                int bookCount = Convert.ToInt32(dgw_Books.CurrentRow.Cells["book_count"].Value); // kitap sayısını alıyoruz
 
-                command.ExecuteNonQuery();
+                if (bookCount > 0) 
+                {
+                    String query = "INSERT INTO Deliveries (member_id, member_name, member_tel, barcode_id, book_author, book_name, delivery_date, return_date, is_returned)" +
+                        " VALUES (@member_id, @member_name, @member_tel, @barcode_id, @book_author, @book_name, @delivery_date, @return_date, @is_returned)";
+                    OleDbCommand command = new OleDbCommand(query, conn); // dataGridView kullanarak hücrelerdeki bilgileri çekiyoruz
 
-                string queryToDecreaseBookCount = "UPDATE Books SET book_count = book_count - 1 WHERE barcode_id = @barcode_id";
-                SqlCommand commandToDecreaseBookCount = new SqlCommand(queryToDecreaseBookCount, conn);
-                commandToDecreaseBookCount.Parameters.AddWithValue("@barcode_id", dgw_Books.CurrentRow.Cells["barcode_id"].Value);
-                commandToDecreaseBookCount.ExecuteNonQuery();
-                fill_DGW();
+                    command.Parameters.AddWithValue("@member_id", dgw_Members.CurrentRow.Cells["member_id"].Value);
+                    command.Parameters.AddWithValue("@member_name", dgw_Members.CurrentRow.Cells["name"].Value.ToString());
+                    command.Parameters.AddWithValue("@member_tel", dgw_Members.CurrentRow.Cells["tel"].Value);
+                    command.Parameters.AddWithValue("@barcode_id", dgw_Books.CurrentRow.Cells["barcode_id"].Value);
+                    command.Parameters.AddWithValue("@book_author", dgw_Books.CurrentRow.Cells["author"].Value.ToString());
+                    command.Parameters.AddWithValue("@book_name", dgw_Books.CurrentRow.Cells["book_name"].Value.ToString());
+                    command.Parameters.AddWithValue("@delivery_date", dtp_Deliver.Value.ToString());
+                    command.Parameters.AddWithValue("@return_date", dtp_Return.Value.ToString());
+                    command.Parameters.AddWithValue("@is_returned", "0");
 
-                MessageBox.Show("Kitap Başarıyla Teslim Edildi");
+                    command.ExecuteNonQuery();
+
+                    string queryToDecreaseBookCount = "UPDATE Books SET book_count = book_count - 1 WHERE barcode_id = @barcode_id"; // book_count değişkenini (kitap adeti) 1 azaltıyoruz
+                    OleDbCommand commandToDecreaseBookCount = new OleDbCommand(queryToDecreaseBookCount, conn);
+                    commandToDecreaseBookCount.Parameters.AddWithValue("@barcode_id", dgw_Books.CurrentRow.Cells["barcode_id"].Value);
+                    commandToDecreaseBookCount.ExecuteNonQuery();
+                    fill_DGW();
+
+                    MessageBox.Show("Kitap Başarıyla Teslim Edildi");
+                }
+                else
+                {
+                    MessageBox.Show("Bu kitaptan stokta kalmadı. Teslim işlemi gerçekleştirilemez.");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

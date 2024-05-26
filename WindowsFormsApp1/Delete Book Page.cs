@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,8 +13,8 @@ namespace WindowsFormsApp1
 {
     public partial class deleteBook : Form
     {
-        SqlConnection conn;
-        public deleteBook(SqlConnection connection)
+        OleDbConnection conn;
+        public deleteBook(OleDbConnection connection)
         {
             InitializeComponent();
             this.conn = connection;
@@ -37,8 +37,8 @@ namespace WindowsFormsApp1
         private DataGridView getBooks()
         {
             string query = "Select * from Books";
-            SqlCommand command = new SqlCommand(query, conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            OleDbCommand command = new OleDbCommand(query, conn);
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -58,18 +58,18 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.Message);
             }
-            getBooks();
+            getBooks(); // sayfa açılırken listenin gelmesi için
         }
 
         private void b_delete_book_Click(object sender, EventArgs e)
         {
-            try
+            try //kitap sil
             {
                 string deleteQuery = "DELETE FROM Books WHERE barcode_id = @barcode_id";
-                SqlCommand deleteCommand = new SqlCommand(deleteQuery, conn);
+                OleDbCommand deleteCommand = new OleDbCommand(deleteQuery, conn);
                 deleteCommand.Parameters.AddWithValue("@barcode_id", dataGridView1.CurrentRow.Cells["barcode_id"].Value);
                 deleteCommand.ExecuteNonQuery();
-                getBooks();
+                getBooks(); //silindikten sonra listenin güncellenmesi için
             }
             catch (Exception ex)
             {
