@@ -79,7 +79,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "deleteMember";
-            this.Text = "Delete_Member_Page";
+            this.Text = "Üye Sil";
             this.Load += new System.EventHandler(this.deleteMember_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

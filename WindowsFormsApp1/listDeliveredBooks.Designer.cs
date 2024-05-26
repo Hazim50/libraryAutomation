@@ -91,7 +91,7 @@
             this.Controls.Add(this.dgw_True);
             this.Controls.Add(this.dgw_False);
             this.Name = "listDeliveredBooks";
-            this.Text = "Teslim Edilmiş Kitapları Listele";
+            this.Text = "Teslim Durumlarını Listele";
             this.Load += new System.EventHandler(this.listDeliveredBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_False)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_True)).EndInit();

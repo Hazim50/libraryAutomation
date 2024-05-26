@@ -65,11 +65,14 @@ namespace WindowsFormsApp1
         {
             try //kitap sil
             {
-                string deleteQuery = "DELETE FROM Books WHERE barcode_id = @barcode_id";
-                OleDbCommand deleteCommand = new OleDbCommand(deleteQuery, conn);
-                deleteCommand.Parameters.AddWithValue("@barcode_id", dataGridView1.CurrentRow.Cells["barcode_id"].Value);
-                deleteCommand.ExecuteNonQuery();
-                getBooks(); //silindikten sonra listenin güncellenmesi için
+                if (dataGridView1.Rows.Count > 1) // >0 denmesinin sebebi ekrandaki 1 tane boş satırı da sayıyor
+                {
+                    string deleteQuery = "DELETE FROM Books WHERE barcode_id = @barcode_id";
+                    OleDbCommand deleteCommand = new OleDbCommand(deleteQuery, conn);
+                    deleteCommand.Parameters.AddWithValue("@barcode_id", dataGridView1.CurrentRow.Cells["barcode_id"].Value);
+                    deleteCommand.ExecuteNonQuery();
+                    getBooks(); //silindikten sonra listenin güncellenmesi için
+                }
             }
             catch (Exception ex)
             {

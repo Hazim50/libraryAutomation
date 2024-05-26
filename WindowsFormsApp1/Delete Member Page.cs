@@ -66,11 +66,14 @@ namespace WindowsFormsApp1
         {
             try
             {
-                string deleteQuery = "DELETE FROM Members WHERE member_id = @member_id";
-                OleDbCommand deleteCommand = new OleDbCommand(deleteQuery, conn);
-                deleteCommand.Parameters.AddWithValue("@member_id", dataGridView1.CurrentRow.Cells["member_id"].Value);
-                deleteCommand.ExecuteNonQuery();
-                getMembers();
+                if (dataGridView1.Rows.Count > 1)
+                {
+                    string deleteQuery = "DELETE FROM Members WHERE member_id = @member_id";
+                    OleDbCommand deleteCommand = new OleDbCommand(deleteQuery, conn);
+                    deleteCommand.Parameters.AddWithValue("@member_id", dataGridView1.CurrentRow.Cells["member_id"].Value);
+                    deleteCommand.ExecuteNonQuery();
+                    getMembers();
+                }
             }
             catch (Exception ex)
             {

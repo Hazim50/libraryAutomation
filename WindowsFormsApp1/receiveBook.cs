@@ -74,19 +74,22 @@ namespace WindowsFormsApp1
         {
             try
             {
-                string updateQuery = "UPDATE Deliveries SET is_returned = true WHERE delivery_id = @delivery_id"; //teslim edilen kitabın is_returned değişkenini True yapmak için
-                OleDbCommand updateCommand = new OleDbCommand(updateQuery, conn);
-                updateCommand.Parameters.AddWithValue("@delivery_id", dgw_False.CurrentRow.Cells["delivery_id"].Value);
-                updateCommand.ExecuteNonQuery();
+                if (dgw_False.Rows.Count > 1)
+                {
+                    string updateQuery = "UPDATE Deliveries SET is_returned = true WHERE delivery_id = @delivery_id"; //teslim edilen kitabın is_returned değişkenini True yapmak için
+                    OleDbCommand updateCommand = new OleDbCommand(updateQuery, conn);
+                    updateCommand.Parameters.AddWithValue("@delivery_id", dgw_False.CurrentRow.Cells["delivery_id"].Value);
+                    updateCommand.ExecuteNonQuery();
 
-                string queryToIncreaseBookCount = "UPDATE Books SET book_count = book_count + 1 WHERE barcode_id = @barcode_id"; //teslim edilen kitabın book_count değişkenini 1 artırıyoruz
-                OleDbCommand commandToIncreaseBookCount = new OleDbCommand(queryToIncreaseBookCount, conn);
-                commandToIncreaseBookCount.Parameters.AddWithValue("@barcode_id", dgw_False.CurrentRow.Cells["barcode_id"].Value);
-                commandToIncreaseBookCount.ExecuteNonQuery();
+                    string queryToIncreaseBookCount = "UPDATE Books SET book_count = book_count + 1 WHERE barcode_id = @barcode_id"; //teslim edilen kitabın book_count değişkenini 1 artırıyoruz
+                    OleDbCommand commandToIncreaseBookCount = new OleDbCommand(queryToIncreaseBookCount, conn);
+                    commandToIncreaseBookCount.Parameters.AddWithValue("@barcode_id", dgw_False.CurrentRow.Cells["barcode_id"].Value);
+                    commandToIncreaseBookCount.ExecuteNonQuery();
 
-                fill_DGW();
+                    fill_DGW();
 
-                MessageBox.Show("Kitap Başarıyla Teslim Alındı");
+                    MessageBox.Show("Kitap Başarıyla Teslim Alındı");
+                }
             }
             catch (Exception ex)
             {
